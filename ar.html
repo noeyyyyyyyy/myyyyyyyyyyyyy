@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บอกรักแฟน</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Kanit', sans-serif;
+            text-align: center;
+            background: radial-gradient(circle, #ff9a9e, #fad0c4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            padding: 60px 80px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            color: #e91e63;
+            font-size: 3.5em;
+            margin-bottom: 30px;
+        }
+        .emoji {
+            font-size: 4em;
+            animation: float 2s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .buttons {
+            margin-top: 40px;
+        }
+        button {
+            font-size: 1.8em;
+            padding: 15px 50px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yes {
+            background-color: #e91e63;
+            color: white;
+            box-shadow: 0 5px 10px rgba(233, 30, 99, 0.5);
+        }
+        #yes:hover {
+            transform: scale(1.1);
+        }
+        #no {
+            background-color: #f8bbd0;
+            color: black;
+            box-shadow: 0 5px 10px rgba(248, 187, 208, 0.5);
+            position: relative;
+        }
+        #no:hover {
+            animation: moveButton 0.5s ease-in-out forwards;
+        }
+        @keyframes moveButton {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(200px, -100px); }
+            100% { transform: translate(-200px, 100px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>คุณรักฉันไหม?</h1>
+        <div class="emoji">💖</div>
+        <div class="buttons">
+            <button id="yes" onclick="alert('ฉันก็รักคุณเหมือนกัน!')">Yes</button>
+            <button id="no">No</button>
+        </div>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('no');
+        noButton.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.left = `px`;
+            noButton.style.top = `px`;
+        });
+    </script>
+</body>
+</html>
